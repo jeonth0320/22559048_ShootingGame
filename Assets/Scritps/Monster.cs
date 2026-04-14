@@ -21,6 +21,8 @@ public class Monster : MonoBehaviour
         }
     }
 
+    public GameObject prefabsExplosion;
+
 
     // Update is called once per frame
    // void Update()
@@ -30,6 +32,8 @@ public class Monster : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        GameObject explosionObj = Instantiate(prefabsExplosion);
+        explosionObj.transform.position = transform.position;
        Destroy(collision.gameObject);
 
         Destroy(gameObject);
